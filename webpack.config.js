@@ -42,7 +42,7 @@ module.exports = {
           use: ['css-loader'],
           fallback: 'style-loader'
         }),
-        include: /node_modeles/
+        include: /node_modules/
       },
       {
         test: /\.(jpg|png)$/,
