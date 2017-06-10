@@ -18,18 +18,18 @@ render(
     document.getElementById('mbMountPoint')
 );
 
-console.dir(createAction('LOAD_COMPLETE').toString)
+// console.dir(createAction('LOAD_COMPLETE').toString)
 
-const initialState = Immutable.fromJS({
-    isLoading: false
-})
+// const initialState = Immutable.fromJS({
+//     isLoading: false
+// })
 
-function testfn (){
-    console.log('aaa')
-}
-var test = handleActions({
-    [createAction('LOAD_COMPLETE', testfn)](state,{payload: inTheaters}){
+// function testfn (){
+//     console.log('aaa')
+// }
+// var test = handleActions({
+//     [createAction('LOAD_COMPLETE', testfn)](state,{payload: inTheaters}){
         
-    }
-}, initialState)
-console.dir(test)
+//     }
+// }, initialState)
+// console.dir(test)
