@@ -18,18 +18,22 @@ render(
     document.getElementById('mbMountPoint')
 );
 
-// console.dir(createAction('LOAD_COMPLETE').toString)
+//import movieApi from '../db/api/movie'
 
+//console.log(movieApi.comingSoon())
+// console.dir(createAction('LOAD_COMPLETE', movieApi.subject)())
+
+// import actionCreators from './actions/status-action-creators'
 // const initialState = Immutable.fromJS({
 //     isLoading: false
 // })
 
-// function testfn (){
-//     console.log('aaa')
-// }
-// var test = handleActions({
-//     [createAction('LOAD_COMPLETE', testfn)](state,{payload: inTheaters}){
-        
+// const test = handleActions({
+//     [actionCreators.load](state){
+//         return state.set('isLoading', true)
+//     },
+//     [actionCreators.loadComplete](state){
+//         return state.set('isLoding', false)
 //     }
 // }, initialState)
-// console.dir(test)
+// console.dir()
