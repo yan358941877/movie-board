@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux-immutable'
 
 import lolomo from './lolomo'
-import models from './medelss'
+import models from './models'
 import status from './status'
 
 export default combineReducers({

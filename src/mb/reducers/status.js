@@ -1,4 +1,4 @@
-import {handleActions} from 'redex-actions'
+import {handleActions} from 'redux-actions'
 import Immutable from 'immutable'
 
 import actionCreators from '../actions/status-action-creators'

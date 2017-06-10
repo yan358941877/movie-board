@@ -1,4 +1,4 @@
-import {creatorAction} from 'redux-actions'
+import {createAction} from 'redux-actions'
 
 import movieApi from '../../db/api/movie'
 
