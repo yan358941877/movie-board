@@ -1,0 +1,31 @@
+@import './octicon/utf-codes.less';
+
+@import 'variables';
+
+.mb-app-footer {
+  color: @gray-text-color;
+  height: @mb-app-footer-height;
+  margin: 40px @mb-app-padding 0 @mb-app-padding;
+  border-top: 1px solid @border-color;
+
+  .copyright {
+    float:left;
+    font-size: 12px;
+    line-height: @mb-app-footer-height;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .github {
+    float: right;
+    font-size: 14px;
+    line-height: @mb-app-footer-height;
+
+    &::before {
+      content: '@{mark-github} ';
+      font-family: 'Octicons Regular';
+    }
+  }
+}

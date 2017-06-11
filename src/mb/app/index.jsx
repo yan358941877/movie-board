@@ -7,17 +7,18 @@ import PropTypes from 'prop-types'
 
 import modelActionCreators from '../actions/model-action-creators'
 
-import AppHeader from '../components/AppHeader.jsx'
+import AppHeader from '../components/AppHeader'
+import AppFooter from '../components/AppFooter'
 class App extends React.Component{
     static propTypes = {
         // isRequired表明该prop不能缺少
         // objectOf 表明status是Immutable.Map类型
-        status: PropTypes.objectOf(Immutable.Map),
+        status: PropTypes.objectOf(Immutable.Map).isRequired,
         children: PropTypes.element,
         // shape: 特定形状参数的对象
         action: PropTypes.shape({
-            search: PropTypes.func
-        })
+            search: PropTypes.func.isRequired
+        }).isRequired
     }
     static defaultProps = {
         children: []
@@ -29,6 +30,7 @@ class App extends React.Component{
                 <AppHeader />
                 <h1>Hello World</h1>
                 {this.props.children}
+                <AppFooter />
             </div>
         )
     }

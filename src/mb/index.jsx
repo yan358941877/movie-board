@@ -8,6 +8,8 @@ import { configStore} from './store'
 import { createAction, handleActions } from 'redux-actions'
 import Immutable from 'Immutable'
 
+import './res/index.less'
+
 const store = configStore()
 
 render(
