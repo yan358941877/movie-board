@@ -3,18 +3,21 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {browserHistory} from 'react-router'
 import Immutable from 'immutable'
+import PropTypes from 'prop-types'
 
 import modelActionCreators from '../actions/model-action-creators'
+
+import AppHeader from '../components/AppHeader.jsx'
 class App extends React.Component{
     static propTypes = {
         // isRequired表明该prop不能缺少
         // objectOf 表明status是Immutable.Map类型
-        status: React.PropTypes.objectOf(Immutable.Map).isRequired,
-        children: React.PropTypes.element,
+        status: PropTypes.objectOf(Immutable.Map),
+        children: PropTypes.element,
         // shape: 特定形状参数的对象
-        action: React.PropTypes.shape({
-            search: React.PropTypes.func.isRequired
-        }).isRequired
+        action: PropTypes.shape({
+            search: PropTypes.func
+        })
     }
     static defaultProps = {
         children: []
@@ -42,5 +45,5 @@ const mapDispatchToProps = (dispatch)=>{
         actions: bindActionCreators(modelActionCreators, dispatch)
     }
 }
-App = connect(mapStateToProps, mapDispatchToProps)(App)
+//App = connect(mapStateToProps, mapDispatchToProps)(App)
 export default App
