@@ -9,6 +9,8 @@ import modelActionCreators from '../actions/model-action-creators'
 
 import AppHeader from '../components/AppHeader'
 import AppFooter from '../components/AppFooter'
+import ProgressBar from '../components/ProgressBar'
+
 class App extends React.Component{
     static propTypes = {
         // isRequired表明该prop不能缺少
@@ -23,11 +25,23 @@ class App extends React.Component{
     static defaultProps = {
         children: []
     }
-
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading: false
+        }
+    }
+    componentDidMount(){
+        this.setState({
+            isLoading: true
+        })
+    }
     render(){
+        console.log(this.props.status.get('isLoading'))
         return (
             <div className="mb-app">
                 <AppHeader />
+                <ProgressBar isLoading={this.state.isLoading}/>
                 <h1>Hello World</h1>
                 {this.props.children}
                 <AppFooter />
@@ -47,5 +61,5 @@ const mapDispatchToProps = (dispatch)=>{
         actions: bindActionCreators(modelActionCreators, dispatch)
     }
 }
-//App = connect(mapStateToProps, mapDispatchToProps)(App)
+App = connect(mapStateToProps, mapDispatchToProps)(App)
 export default App

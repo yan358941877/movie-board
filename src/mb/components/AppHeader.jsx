@@ -40,7 +40,7 @@ class AppHeader extends React.PureComponent{
     render(){
         return (
             <header className={cn('mb-app-header', { translucent: this.state.translucent})}>
-                <div className="mb-logo"/>
+                <div className="mb-logo" onClick={()=>browserHistory.push('/')}/>
                 <div className="navbars">
                 </div>
             </header>
