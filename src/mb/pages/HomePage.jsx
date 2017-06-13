@@ -17,7 +17,6 @@ class HomePage extends React.Component{
     }
 
     componentDidMount(){
-        debugger
         this.props.actions.loadComingSoon()
         this.props.actions.loadInTheaters()
         this.props.actions.loadTop20()
