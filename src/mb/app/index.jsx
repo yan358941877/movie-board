@@ -41,7 +41,6 @@ class App extends React.Component{
             <div className="mb-app">
                 <AppHeader />
                 <ProgressBar isLoading={this.props.status.get('isLoading')}/>
-                <h1>Hello World</h1>
                 {this.props.children}
                 <AppFooter />
             </div>
