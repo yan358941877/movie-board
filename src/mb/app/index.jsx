@@ -25,23 +25,22 @@ class App extends React.Component{
     static defaultProps = {
         children: []
     }
-    constructor(props){
-        super(props)
-        this.state = {
-            isLoading: false
-        }
-    }
-    componentDidMount(){
-        this.setState({
-            isLoading: true
-        })
-    }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         isLoading: false
+    //     }
+    // }
+    // componentDidMount(){
+    //     this.setState({
+    //         isLoading: true
+    //     })
+    // }
     render(){
-        console.log(this.props.status.get('isLoading'))
         return (
             <div className="mb-app">
                 <AppHeader />
-                <ProgressBar isLoading={this.state.isLoading}/>
+                <ProgressBar isLoading={this.props.status.get('isLoading')}/>
                 <h1>Hello World</h1>
                 {this.props.children}
                 <AppFooter />

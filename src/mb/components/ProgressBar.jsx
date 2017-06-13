@@ -21,14 +21,14 @@ class ProgressBar extends React.Component{
     componentWillUpdate(nextProps){
         if(nextProps.isLoading !== this.props.isLoading){
             this.clearTimer()
-            // 如果isloading从false变为true
+            // 如果isloading从false变为true，说明刚开始加载过程
             if(nextProps.isLoading){
                 this.setState({
                     percentage: 15
                 })
                 this.timer = setInterval(()=>{
-                    this.setState((preState)=>{
-                        let percentage = preState.percentage
+                    this.setState((currentState)=>{
+                        let percentage = currentState.percentage
                         if(percentage >=98){
                             percentage = 98
                         }else if(percentage >= 90){
