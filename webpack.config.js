@@ -1,4 +1,5 @@
 const path = require('path');
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
@@ -6,15 +7,33 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    vender: './src/vender/index.js',
+    vendor: './src/vendor/index.js',
     mb: ['./src/mb/index.jsx', './src/mb/index.html']
   },
-
   output: {
     filename: 'assets/js/[name].js',
     chunkFilename: 'assets/js/chunk.[id].js',
     path: path.resolve(__dirname, 'public'),
     publicPath: '/'
+  },
+  devtool: devMode ? 'source-map' : false,
+  devServer: {
+    compress: true,
+    historyApiFallback: true,
+    hot: false,
+    hotOnly: false,
+    contentBase: path.resolve(__dirname, 'public'),
+    watchContentBase: false,
+    watchOptions: {
+      poll: false
+    },
+    proxy: {
+      '/api': {
+        target: 'http://api.douban.com/v2',
+        pathRewrite: { '^/api': '' },
+        changeOrigin: true,
+      }
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -27,7 +46,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: ['babel-loader'],
-        exclude: /node_modeles/
+        exclude: /node_modules/
       },
       {
         test: /\.less$/,
@@ -46,7 +65,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)$/,
-        use: ['url-loader?name=assets/images/[name].[ext]&&limit=10240']
+        use: ['url-loader?name=assets/images/[name].[ext]&limit=10240']
       },
       {
         test: /\.(eot|svg|ttf|woff2?)$/,
@@ -62,34 +81,14 @@ module.exports = {
       }
     ]
   },
-  devtool: devMode ? 'source-map' : false,
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      names: 'vender'
+      names: 'vendor'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       recompose: 'recompose'
     }),
     new ExtractTextPlugin('assets/css/[name].css')
-  ],
-  devServer: {
-    compress: true,
-    historyApiFallback: true,
-    hot: false,
-    hotOnly: false,
-    contentBase: path.resolve(__dirname, 'public'),
-    watchContentBase: false,
-    watchOptions: {
-      poll: false
-    },
-    proxy: {
-      '/api': {
-        target: 'http://api.douban/com/v2',
-        pathRewrite: { '^/api': '' },
-        changeOrigin: true,
-      }
-    }
-  }
-
+  ]
 };
