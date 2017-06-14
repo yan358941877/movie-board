@@ -4,7 +4,7 @@ import Immutable from 'immutable'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import lolomoActionCreators from '../actions/model-action-creators'
+import lolomoActionCreators from '../actions/lolomo-action-creators'
 
 import LoLoMoRow from '../components/LoLoMoRow'
 

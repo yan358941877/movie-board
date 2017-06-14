@@ -35,6 +35,7 @@ export function get(
   payloadHandler = payload => payload,
   responseHandler = response => Immutable.fromJS(response)) {
   return async (payload) => {
+    
     let url = null;
     if (typeof path === 'function') {
       url = path(payload);
