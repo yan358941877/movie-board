@@ -12,7 +12,7 @@ export default handleActions({
         return state.set('isLoading', true)
     },
     [actionCreators.loadComplete](state){
-        return state.set('isLoding', false)
+        return state.set('isLoading', false)
     }
 }, initialState)
 
