@@ -30,8 +30,10 @@ class LoLoMoContainer extends React.PureComponent {
     }
     render() {
         const { actions: { selectSubject }, models, selectedModelKey } = this.props
+
         // rows中的每一个row对应的是：正在上映的电影、即将上映的电影、豆瓣电影Top20中的一行
         const rows = models.map((model, key) => {
+            
             const title = TITLES[key]
             const hasSelection = selectedModelKey === key;
 
