@@ -1,65 +1,83 @@
-@import 'octicon/utf-codes.less';
+@import '~octicons/utf-codes.less';
+
+
 .mb-lomo-covers {
-    list-style: none;
-    display: flex;
-    flex-flow: row wrap;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0;
+  margin: 0;
 }
 
 .mb-lomo-covers-cell {
-    flex-shrink: 0;
-    margin: 0 1px;
-    padding: 0;
-    cursor: pointer;
-    trainsition: all 0.25s;
-    position: relative;
+  flex-shrink: 0;
+  margin: 0 1px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
 }
 
 
-.mb-lomo-row {
-    .mb-lomo-covers {
-        flex-wrap: nowrap;
+
+
+
+
+
+.mb-lolomo-row {
+  .mb-lomo-covers {
+    flex-wrap: nowrap;
+  }
+
+  .mb-lomo-covers-cell {
+    opacity: 0.2;
+
+    &:hover {
+      z-index: 3;
+      opacity: 1;
     }
-    .mb-lomo-covers-cell {
-        opacity: 0.2;
-        &:hover {
-            z-index: 3;
-            opacity: 1;
-        }
-        &.selected {
-            z-index: 2;
-            opacity: 1;
-            box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.4);
-            .mb-mo-cover {
-                border: 6px solid white;
-            }
-        }
+
+    &.selected {
+      z-index: 2;
+      opacity: 1;
+      box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.4);
+
+      .mb-mo-cover {
+        border: 6px solid white;
+      }
     }
-    &.no-selection {
-        .mb-lomo-covers-cell:hover {
-            transform: scale(1.2) translateX(12px);
-            &~.mb-lomo-covers-cell {
-                transform: translateX(36px);
-            }
-            .mb-mo-cover {
-                border: 2px solid #fff;
-            }
-        }
+  }
+
+  &.no-selection {
+    /*鼠标移上去，后续元素向后移动效果*/
+    .mb-lomo-covers-cell:hover {
+      transform: scale(1.2) translateX(12px);;
+
+      & ~ .mb-lomo-covers-cell {
+        transform: translateX(36px);
+      }
+
+      .mb-mo-cover {
+        border: 2px solid white;
+      }
     }
-    &.has-selection {
-        .mb-mo-cover .cover-image {
-            transition: all 0.4s;
-        }
-        .mb-lomo-covers-cell:hover {
-            .mb-mo-cover .cover-image {
-                transform: scale(1.15);
-            }
-        }
-        .mb-lomo-covers-cell.selected:hover {
-            .mb-mo-cover .cover-image {
-                transform: none;
-            }
-        }
+  }
+
+  &.has-selection {
+    .mb-mo-cover .cover-image {
+      transition: all 0.4s;
     }
+    /* 如果当前行有一个图片被选中，当鼠标在其他元素上停留时，表现不同的原因*/
+    .mb-lomo-covers-cell:hover {
+      .mb-mo-cover .cover-image {
+        transform: scale(1.15);
+      }
+    }
+
+    .mb-lomo-covers-cell.selected:hover {
+      .mb-mo-cover .cover-image{
+        transform: none;
+      }
+    }
+  }
 }
