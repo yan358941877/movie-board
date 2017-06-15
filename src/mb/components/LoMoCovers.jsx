@@ -7,7 +7,7 @@ import MoCover from '../components/MoCover'
 /** 
  * 代表处于同一行的一组图片封面
  */
-
+import '../res/lomo-covers.less'
 class LoMoCovers extends React.Component {
     static propTypes = {
         actions: PropTypes.shape({

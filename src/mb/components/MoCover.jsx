@@ -3,6 +3,7 @@ import Immutable from 'immutable'
 import PropTypes from 'prop-types'
 // 这是一个电影的封面图片
 
+import '../res/mo-cover.less'
 class MoCover extends React.Component {
     static propTypes = {
         subject: PropTypes.objectOf(Immutable.Map).isRequired
@@ -15,7 +16,7 @@ class MoCover extends React.Component {
         const { subject } = this.props
         return (
             <div className="mb-mo-cover">
-                <div className="cover-img" style={{backgroundImage: `url(${subject.getIn(['images','large'])})`}}/>
+                <div className="cover-image" style={{backgroundImage: `url(${subject.getIn(['images','large'])})`}}/>
             </div>
         )
     }

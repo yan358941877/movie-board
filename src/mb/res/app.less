@@ -1,0 +1,24 @@
+@import 'variables';
+
+#mbMountPoint {
+  width: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.mb-app {
+  width: 100%;
+  padding-top: @mb-app-header-height;
+
+  .mb-progress-bar {
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+@import 'responsive';

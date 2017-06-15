@@ -1,0 +1,40 @@
+@import 'octicon/utf-codes.less';
+@import 'variables.less';
+.mb-lolomo-row {
+    padding-top: @mb-app-padding - 10;
+    padding-bottom: @mb-app-padding + 10;
+    overflow-x: hidden;
+    .row-head {
+        padding-left: @mb-app-padding;
+        margin-bottom: 20px;
+    }
+    .row-content {
+        position: relative;
+        padding-left: @mb-app-padding;
+    }
+    .scrollable {
+        transition: transform 0.6s;
+    }
+    .scrollable-button {
+        opacity: 0;
+        color: #fff;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        top: 0;
+        bottom: 0;
+        width: @mb-app-padding;
+        font-size: 48px;
+        transition: opacity 0.4s;
+        &.left {
+            left: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+        }
+        &.right {
+            right: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+        }
+    }
+}

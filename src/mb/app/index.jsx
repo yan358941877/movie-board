@@ -11,6 +11,8 @@ import AppHeader from '../components/AppHeader'
 import AppFooter from '../components/AppFooter'
 import ProgressBar from '../components/ProgressBar'
 
+import '../res/app.less'
+
 class App extends React.Component{
     static propTypes = {
         // isRequired表明该prop不能缺少

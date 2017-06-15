@@ -13,10 +13,9 @@ import './res/index.less'
 const store = configStore()
 
 render(
-    // <Provider store = {store}>
-    //     <RouterMap />
-    // </Provider>
-    <h1>asdf</h1>
+    <Provider store = {store}>
+        <RouterMap />
+    </Provider>
     ,
     document.getElementById('mbMountPoint')
 );
