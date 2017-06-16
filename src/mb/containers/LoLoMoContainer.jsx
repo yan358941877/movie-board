@@ -41,7 +41,7 @@ class LoLoMoContainer extends React.PureComponent {
 
             let jawBone = hasSelection ? (
                 <JawBone actions={{close: ()=> selectSubject(null)}}>
-                
+                    <MoJumbotronContainer />
                 </JawBone>
             ):null
             return (
