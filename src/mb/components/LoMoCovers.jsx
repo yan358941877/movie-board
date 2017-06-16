@@ -25,12 +25,13 @@ class LoMoCovers extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         let shouldUpdate = false
+        
         if (nextProps.hasSelection !== this.props.hasSelection) {
             shouldUpdate = true
-        } else if (nextProps.selectedSubjectId !== this.props.selectedSubjectId) {
-            shouldUpdate = false
+        } else if (nextProps.selectedSubjectId !== this.props.selectedSubjectId&& this.props.hasSelection) {
+            shouldUpdate = true
         }
-        if (nextProps.subjects !== this.props.subject) {
+        if (nextProps.subjects !== this.props.subjects) {
             shouldUpdate = true
         }
         return shouldUpdate
