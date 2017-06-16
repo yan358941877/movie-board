@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cs from 'classnames'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 /*代表HomePage中的一行*/
 
-class LoLoMoRow extends React.Component{
+class LoLoMoRow extends React.Component {
     static propTypes = {
-        children: PropTypes.oneOfType([PropTypes.element,PropTypes.arrayOf(PropTypes.element)]),
+        children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
         hasSelection: PropTypes.bool,
         jawBone: PropTypes.element,
         title: PropTypes.string.isRequired
@@ -18,58 +19,65 @@ class LoLoMoRow extends React.Component{
         jawBone: null
     }
 
-    getScroll(){
+    getScroll() {
         let transform = this.scrollable.style.transform
-        if(!transform.startsWith('translate')){
+        if (!transform.startsWith('translate')) {
             transform = 'translateX(0px)'
         }
         const translateX = parseInt(transform.match(/\(([-\d]+)/)[1], 0)
         return Math.abs(translateX)
     }
-    setScroll(scroll){
+    setScroll(scroll) {
         this.scrollable.style.transform = `translate(${-scroll}px)`
     }
-    scrollLeft(){
+    scrollLeft() {
         let scroll = this.getScroll()
         scroll -= this.scrollable.offsetWidth - 40;
-        if(scroll < 0){
+        if (scroll < 0) {
             scroll = 0
         }
         this.setScroll(scroll)
     }
-    scrollRight(){
+    scrollRight() {
         let scroll = this.getScroll()
-        scroll += this.scrollable.offsetWidth -40
+        scroll += this.scrollable.offsetWidth - 40
         const max = this.scrollable.scrollWidth - this.scrollable.offsetWidth
-        if(scroll > max){
+        if (scroll > max) {
             scroll = max
         }
         this.setScroll(scroll)
     }
-    componentDidMount(){
+    componentDidMount() {
         //console.log(this.getScroll())
         //this.setScroll(1540)
-        
+
     }
-    render(){
-        const {title, hasSelection} = this.props
+    render() {
+        const { title, hasSelection, jawBone } = this.props
         const children = React.Children.toArray(this.props.children)
         return (
-            <div className={cs('mb-lolomo-row', {'no-selection': !hasSelection}, {'has-selection': hasSelection})}>
+            <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
                 <div className="row-head">
                     <a className="title h3">{title}</a>
                 </div>
                 <div className="row-content">
                     <a className="left scroll-button" role="button" onClick={this.scrollLeft.bind(this)}>
-                        <i className="octicon icon-chevron-left"/>
+                        <i className="octicon icon-chevron-left" />
                     </a>
-                    <div ref={(div)=>{this.scrollable = div}} className='scrollable'>
-                        {children.length > 0? children[0]:null}
+                    <div ref={(div) => { this.scrollable = div }} className='scrollable'>
+                        {children.length > 0 ? children[0] : null}
                     </div>
                     <a className="right scroll-button" role="button" onClick={this.scrollRight.bind(this)}>
-                        <i className="octicon icon-chevron-right"/>
+                        <i className="octicon icon-chevron-right" />
                     </a>
                 </div>
+                <ReactCSSTransitionGroup
+                    transitionName="jaw-bone-transition"
+                    transitionEnterTimeout={400}
+                    transitionLeaveTimeout={300}
+                >
+                    {jawBone}
+                </ReactCSSTransitionGroup>
             </div>
         )
     }

@@ -1,0 +1,21 @@
+@import 'variables.less';
+
+.mb-jaw-bone{
+    background: #666;
+    position: relative;
+
+    .jaw-bone-container{
+        width: 100%;
+        height: 100%;
+    }
+
+    .close-button {
+        color: @link-hover-color;
+        display: block;
+        position: absolute;
+        right: @mb-app-padding;
+        top: @mb-app-padding/2;
+        z-index: 99;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    }
+}

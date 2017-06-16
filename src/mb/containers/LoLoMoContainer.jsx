@@ -7,8 +7,10 @@ import PropTypes from 'prop-types'
 import lolomoActionCreators from '../actions/lolomo-action-creators'
 
 import LoLoMoRow from '../components/LoLoMoRow'
+import JawBone from '../components/JawBone'
 
 import LoMoCoversContainer from './LoMoCoversContainer'
+import MoJumbotronContainer from './MoJumbotronContainer.jsx'
 
 import '../res/lolomo.less'
 
@@ -37,7 +39,11 @@ class LoLoMoContainer extends React.PureComponent {
             const title = TITLES[key]
             const hasSelection = selectedModelKey === key;
 
-            let jawBone = null
+            let jawBone = hasSelection ? (
+                <JawBone actions={{close: ()=> selectSubject(null)}}>
+                
+                </JawBone>
+            ):null
             return (
                 <LoLoMoRow
                     key={key}
