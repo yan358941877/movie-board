@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Immutable from 'immutable'
 
 import MoSlides from '../components/MoSlides'
+import Tabs from '../components/Tabs'
+import Tab from '../components/Tab'
 
 import '../res/mo-jumbotron.less'
 
@@ -32,6 +34,20 @@ import '../res/mo-jumbotron.less'
                     <h1 className="subject-title">
                         <span className="title">{title}</span>
                     </h1>
+                    <Tabs>
+                        <Tab id="general" title="总览">
+
+                        </Tab>
+                        <Tab id="casts" title="演员">
+
+                        </Tab>
+                        <Tab id="trailers" title="预告片">
+
+                        </Tab>
+                        <Tab id="comments" title="评论">
+
+                        </Tab>
+                    </Tabs>
                  </div>
                  <MoSlides slides={subject.get('trailers')&&subject.get('trailers').size ? subject.get('trailers'): subject.get('photo')}/>
              </div>
