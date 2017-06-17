@@ -6,7 +6,8 @@ import MoSlides from '../components/MoSlides'
 import Tabs from '../components/Tabs'
 import Tab from '../components/Tab'
 import MoGeneral from '../components/MoGeneral'
-
+import LoCasts from '../components/LoCasts'
+import LoTrailers from '../components/LoTrailers'
 import '../res/mo-jumbotron.less'
 
  class MoJumbotron extends React.Component {
@@ -40,10 +41,10 @@ import '../res/mo-jumbotron.less'
                             <MoGeneral subject={subject} />  
                         </Tab>
                         <Tab id="casts" title="演员">
-
+                            <LoCasts casts={subject.get('casts')}/>
                         </Tab>
                         <Tab id="trailers" title="预告片">
-
+                            <LoTrailers trailers={subject.get('trailers')}/>
                         </Tab>
                         <Tab id="comments" title="评论">
 
