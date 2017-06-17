@@ -8,6 +8,7 @@ import Tab from '../components/Tab'
 import MoGeneral from '../components/MoGeneral'
 import LoCasts from '../components/LoCasts'
 import LoTrailers from '../components/LoTrailers'
+import LoComments from '../components/LoComments'
 import '../res/mo-jumbotron.less'
 
  class MoJumbotron extends React.Component {
@@ -47,7 +48,7 @@ import '../res/mo-jumbotron.less'
                             <LoTrailers trailers={subject.get('trailers')}/>
                         </Tab>
                         <Tab id="comments" title="评论">
-
+                            <LoComments comments={subject.get('popular_comments')} />
                         </Tab>
                     </Tabs>
                  </div>
