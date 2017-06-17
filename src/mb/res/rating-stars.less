@@ -1,0 +1,44 @@
+@import '~octicons/utf-codes.less';
+
+@import 'variables';
+
+
+.mb-rating-stars {
+  .star {
+    display: inline-block;
+    margin-left: 3px;
+
+    &::before {
+      color: @mb-theme-color;
+      font-family: 'Octicons Regular';
+      content: @star;
+    }
+
+    &.zero::before {
+      color: darken(@gray-text-color, 25%);
+    }
+
+    &.half {
+      position: relative;
+
+      &::before {
+        color: darken(@gray-text-color, 25%);
+      }
+
+      .inner-star {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0.45em;
+        overflow: hidden;
+
+        &::before
+        {
+          color: @mb-theme-color;
+          font-family: 'Octicons Regular';
+          content: @star;
+        }
+      }
+    }
+  }
+}

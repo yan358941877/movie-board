@@ -5,6 +5,7 @@ import Immutable from 'immutable'
 import MoSlides from '../components/MoSlides'
 import Tabs from '../components/Tabs'
 import Tab from '../components/Tab'
+import MoGeneral from '../components/MoGeneral'
 
 import '../res/mo-jumbotron.less'
 
@@ -36,7 +37,7 @@ import '../res/mo-jumbotron.less'
                     </h1>
                     <Tabs>
                         <Tab id="general" title="总览">
-
+                            <MoGeneral subject={subject} />  
                         </Tab>
                         <Tab id="casts" title="演员">
 
