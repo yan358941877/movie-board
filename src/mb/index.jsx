@@ -21,6 +21,9 @@ render(
 );
 
 import movieApi from '../db/api/movie'
+import actionCreators from './actions/status-action-creators'
+
+
 
 // 验证movieApi中的方法
 // var response = movieApi.comingSoon
@@ -43,7 +46,7 @@ import movieApi from '../db/api/movie'
 //console.log(movieApi.comingSoon())
 // console.dir(createAction('LOAD_COMPLETE', movieApi.subject)())
 
-// 
+
 // const initialState = Immutable.fromJS({
 //     isLoading: false
 // })
@@ -56,4 +59,36 @@ import movieApi from '../db/api/movie'
 //         return state.set('isLoding', false)
 //     }
 // }, initialState)
-// console.dir()
+// console.dir({
+//     [actionCreators.load](state){
+//         return state.set('isLoading', true)
+//     },
+//     [actionCreators.loadComplete](state){
+//         return state.set('isLoding', false)
+//     }
+// })
+
+/*
+
+{
+    [actionCreators.load](state){
+        return state.set('isLoading', true)
+    },
+    [actionCreators.loadComplete](state){
+        return state.set('isLoding', false)
+    }
+}
+等价于
+<===>
+{
+    LOAD: function(state){
+        return state.set('isLoading', true)
+    },
+    LOAD_COMPLETE: function(state){
+        return state.set('isLoading', false)
+    }
+} 
+
+[actionCreators.load]会调用actionCreators.load的toString方法并将其结果作为函数名，而调用actionCreators.load.toString()的方法会将action.type返回
+*/
+// console.console(actionCreators.load.toString())  ==> 输出 “LOAD"

@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps)=>{
     return {
         actions: {
             selectSubject(subject){
+                // actionCreators.selectSubject将会生成一个action，action.type = "SELECT_SUBJECT", action.payload = {subject, modelKey: ownProps.modelKey}
                 dispatch(actionCreators.selectSubject({subject, modelKey: ownProps.modelKey}))
                 if(subject){
                     dispatch(actionCreators.loadSubject(subject.get('id')))

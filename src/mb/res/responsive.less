@@ -1,3 +1,4 @@
+// 设置所有字体的大小
 .mb-font-size(@factor) {
   body {
     font-size: @font-size-base * @factor;
@@ -19,7 +20,7 @@
   h6, .h6 { font-size: @font-size-h6 * @factor; }
 }
 
-
+// 一类电影类别那部分内容的尺寸
 .mb-mo-cover-size(@factor) {
   .mb-mo-cover {
     width: 300px * @factor;
@@ -30,13 +31,14 @@
     height: 400px * @factor;
   }
 }
-
+// 点击电影图片，显示电影详细信息的那部分内容的尺寸
 .mb-jaw-bone-size(@factor) {
   .mb-jaw-bone {
     height: 1080px * 0.5 * @factor;
   }
 }
 
+// 每个Tab项中一些元素大小的设置
 .mb-lo-in-tab-size(@factor) {
   .mb-lo-casts {
     .thumbnail {
@@ -62,12 +64,12 @@
 }
 
 
-
+// 如果浏览器页面宽度大于1920px
 @media (min-width: 1920px) {
   .mb-font-size(1); // 16px
   .mb-responsive(1.2);
 }
-
+// 浏览器页面宽度大于1600px且小于1920px
 @media (max-width: 1920px) {
   .mb-font-size(1); // 16px
   .mb-responsive(1920 / 1920);
