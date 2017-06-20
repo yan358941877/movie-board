@@ -11,5 +11,3 @@ export function configStore(initialState){
         window.__REDUX_DEVTOOLS_EXTENSION__ / window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     )
 }
-
-// 用
